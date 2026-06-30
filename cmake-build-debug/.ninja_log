@@ -1,0 +1,5 @@
+# ninja log v5
+2	6440	8045620230541502	CMakeFiles/ADC_project.dir/ADC.c.obj	b695d1e44c5b72ec
+61	6486	8045620230541502	CMakeFiles/ADC_project.dir/io.c.obj	20ff081f88bed3ed
+6767	8791	8045620254303272	ADC_project.exe	8507eec884305844
+101	6765	8045620234137240	CMakeFiles/ADC_project.dir/main.c.obj	a262830843dc3561
