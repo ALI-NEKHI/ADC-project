@@ -1,6 +1,7 @@
 #include <stdio.h>
-
+#include "io.h"
 int main() {
-    printf("Hello, World!\n");
+    struct AdcSample adcSample;
+    struct FileHeader header;
     return 0;
 }
