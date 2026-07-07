@@ -7,8 +7,7 @@
 
 #include <stdint.h>
 
-struct AdcSample //128 bits ( 16 bytes)
-
+struct __attribute__((__packed__))  AdcSample //128 bits ( 16 bytes)
  {
     float time_stamp; //32
     uint8_t ch_id; //8
@@ -20,8 +19,8 @@ struct AdcSample //128 bits ( 16 bytes)
 
 };
 
-struct FileHeader
-{
+struct __attribute__((__packed__)) FileHeader
+        {
     uint32_t magic ;
     uint16_t version;
     uint16_t channel_count;

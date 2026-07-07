@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 #include "io.h"
-
+#include <stdlib.h>
 struct AdcSample * ReadADC_data(struct FileHeader * header)
 {
   FILE *dataFile = fopen("adc_sensor_log.bin","rb");
@@ -28,5 +28,10 @@ struct AdcSample * ReadADC_data(struct FileHeader * header)
     }
 
     struct AdcSample * sample;
+    sample= malloc (header->record_count * sizeof( struct AdcSample ));//reserve
+    fread(sample,sizeof( struct AdcSample ),header->record_count,dataFile);//read
+
+    fclose(dataFile);
+    return sample;
 //return start location of this data in memory to the main
 }
