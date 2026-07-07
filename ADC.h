@@ -7,4 +7,5 @@
 #ifndef ADC_PROJECT_ADC_H
 #define ADC_PROJECT_ADC_H
 
+float * ConvertToVoltage(struct AdcSample *sample , uint32_t record_count);
 #endif //ADC_PROJECT_ADC_H
