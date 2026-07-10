@@ -14,5 +14,7 @@ struct StatisticsData
     float meanVolt;
     float standard_dev;
 };
+
 void GetStatisticsPerChannel (struct AdcSample *sample , uint32_t record_count , struct StatisticsData statisticsData[4],float *voltages);
+void Calculate_Standard_Deviation(struct AdcSample *sample , uint32_t record_count ,struct StatisticsData statisticsData[4], float *voltages);
 #endif //ADC_PROJECT_STATS_H
