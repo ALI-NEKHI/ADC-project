@@ -48,3 +48,32 @@ void  FindDataFaults(struct AdcSample *sample , uint32_t record_count , struct D
     }
 
 }
+
+void GetSamplingIntegrity(struct AdcSample *sample , uint32_t record_count , struct Sampling_integrity * samplingIntegrity)
+{
+    samplingIntegrity->missing_count=0;
+    samplingIntegrity->outOfOrder_count=0;
+
+    for(uint32_t i =0 ; i < record_count-1 ; i++)
+    {
+        uint32_t c_seq= (sample+i)->seq ;
+        uint32_t n_seq= (sample+i+1)->seq ;
+        uint32_t correct_next_seq= c_seq+1 ;
+
+        if(correct_next_seq==n_seq)
+        {
+            continue;
+        }
+        else if (n_seq > correct_next_seq)
+        {
+            samplingIntegrity->missing_count++;
+            printf("Missing found at index %u \n",i);
+        }
+        else if ( n_seq < correct_next_seq)
+        {
+            samplingIntegrity->outOfOrder_count++;
+            printf("out of order found at index %u \n",i);
+        }
+
+    }
+}

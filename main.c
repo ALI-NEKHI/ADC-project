@@ -8,6 +8,7 @@ int main() {
     struct FileHeader header;
     struct DataFault  dataFault [4];
     struct StatisticsData statisticsData [4];
+    struct Sampling_integrity  samplingIntegrity;
     adcSample= ReadADC_data(&header);
     float * voltages = ConvertToVoltage(adcSample,header.record_count);
     for(uint32_t i=0 ; i < 10 ; i++)//testig
@@ -39,9 +40,9 @@ int main() {
         printf("---------------------------------------------------------------\n");
     }
 
+    GetSamplingIntegrity(adcSample,header.record_count,&samplingIntegrity);
 
-
-
+    printf("Out of order : %d ---- Missing %d  \n",samplingIntegrity.outOfOrder_count,samplingIntegrity.missing_count);
 
     return 0;
 }
