@@ -104,6 +104,7 @@ int WriteTheResult()
     printf("Out of order : %d ---- Missing %d  \n",samplingIntegrity.outOfOrder_count,samplingIntegrity.missing_count);
     fprintf(results,"Out of order : %d ---- Missing %d  \n",samplingIntegrity.outOfOrder_count,samplingIntegrity.missing_count);
 
-
+    free(adcSample);
+    free(voltages);
     return 1;
 }
