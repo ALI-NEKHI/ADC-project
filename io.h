@@ -30,4 +30,5 @@ struct __attribute__((__packed__)) FileHeader
 };
 
 struct AdcSample * ReadADC_data(struct FileHeader * header);
+int WriteTheResult();
 #endif //ADC_PROJECT_IO_H
